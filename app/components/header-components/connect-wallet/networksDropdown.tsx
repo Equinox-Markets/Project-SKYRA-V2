@@ -150,48 +150,53 @@ const NetworksDropdown = () => {
         <div
           className="relative z-10 w-[34px] h-[34px] xl:h-[44px] xl:w-[auto] m-auto mr-[6px] xl:mr-[12px]"
           ref={dropdownRef}
-        >
-          <button
-            aria-label="Select Network"
-            tabIndex={0}
-            className={`group ${
-              selectedNetwork.networkName && isActive
-                ? "bg-[#181D1B] hover:bg-[#262C2A]"
-                : "bg-[#3A1313] hover:bg-[#4f2222]"
-            } flex justify-between h-full items-center px-[9px] xl:px-[10px] rounded-[6px] cursor-pointer`}
-            onClick={() => setIsOpen(!isOpen)}
-          >
-            <div className="flex justify-between gap-[9px] mr-[0] xl:mr-[8px] items-center">
-              <img
-                className="w-[16px] h-[16px] block"
-                src={
-                  selectedNetwork.networkName && isActive
-                    ? selectedNetwork.iconsSrc
-                    : "/images/ico/error-network.svg"
-                }
-                alt="..."
-              />
-              <div className="hidden font-nova font-semibold text-sm xl:block">
-                {selectedNetwork.networkName && isActive
-                  ? selectedNetwork.networkName
-                  : "Wrong Network"}
-              </div>
-            </div>
-            <svg
-              className={`hidden xl:block fill-white justify-self-end arrow__custom ${
-                isOpen ? "rotate-0" : "rotate-180"
-              } ${
-                selectedNetwork.networkName && isActive
-                  ? "group-hover:fill-[#01C275]"
-                  : "group-hover:fill-[#FF3939]"
-              }`}
-              width="10"
-              height="6"
-              viewBox="0 0 10 6"
-            >
-              <path d="M5.00003 0.149816C5.17925 0.149816 5.35845 0.218246 5.49508 0.354819L9.79486 4.65464C10.0684 4.92816 10.0684 5.37163 9.79486 5.64504C9.52145 5.91845 9.07807 5.91845 8.80452 5.64504L5.00003 1.84032L1.19551 5.64491C0.921987 5.91832 0.478651 5.91832 0.205262 5.64491C-0.0683924 5.37149 -0.0683923 4.92803 0.205262 4.6545L4.50497 0.354686C4.64168 0.218091 4.82087 0.149816 5.00003 0.149816Z" />
-            </svg>
-          </button>
+		  >
+		{
+			isActive ? <>
+				<button
+					aria-label="Select Network"
+					tabIndex={0}
+					className={`group ${
+					selectedNetwork.networkName && isActive
+						? "bg-[#181D1B] hover:bg-[#262C2A]"
+						: "bg-[#3A1313] hover:bg-[#4f2222]"
+					} flex justify-between h-full items-center px-[9px] xl:px-[10px] rounded-[6px] cursor-pointer`}
+					onClick={() => setIsOpen(!isOpen)}
+				>
+					<div className="flex justify-between gap-[9px] mr-[0] xl:mr-[8px] items-center">
+					<img
+						className="w-[16px] h-[16px] block"
+						src={
+						selectedNetwork.networkName && isActive
+							? selectedNetwork.iconsSrc
+							: "/images/ico/error-network.svg"
+						}
+						alt="..."
+					/>
+					<div className="hidden font-nova font-semibold text-sm xl:block">
+						{console.log({selectedNetwork})}
+						{selectedNetwork.networkName && isActive
+						? selectedNetwork.networkName
+						: "Wrong Network"}
+					</div>
+					</div>
+					<svg
+					className={`hidden xl:block fill-white justify-self-end arrow__custom ${
+						isOpen ? "rotate-0" : "rotate-180"
+					} ${
+						selectedNetwork.networkName && isActive
+						? "group-hover:fill-[#01C275]"
+						: "group-hover:fill-[#FF3939]"
+					}`}
+					width="10"
+					height="6"
+					viewBox="0 0 10 6"
+					>
+					<path d="M5.00003 0.149816C5.17925 0.149816 5.35845 0.218246 5.49508 0.354819L9.79486 4.65464C10.0684 4.92816 10.0684 5.37163 9.79486 5.64504C9.52145 5.91845 9.07807 5.91845 8.80452 5.64504L5.00003 1.84032L1.19551 5.64491C0.921987 5.91832 0.478651 5.91832 0.205262 5.64491C-0.0683924 5.37149 -0.0683923 4.92803 0.205262 4.6545L4.50497 0.354686C4.64168 0.218091 4.82087 0.149816 5.00003 0.149816Z" />
+					</svg>
+				</button>
+			</> : <></>
+		}
           <div
             className={`${
               isOpen ? "block" : "hidden"
